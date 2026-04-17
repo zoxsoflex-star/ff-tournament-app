@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Free Fire Tournament</title>
+<style>
+body{
+background:black;
+color:white;
+font-family:sans-serif;
+text-align:center;
+}
+
+.container{
+margin-top:50px;
+}
+
+input,button{
+padding:10px;
+margin:5px;
+width:80%;
+border-radius:10px;
+border:none;
+}
+
+button{
+background:green;
+color:white;
+font-size:18px;
+}
+
+a{
+color:yellow;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>FREE FIRE TOURNAMENT</h1>
+
+<h3>Entry Fee ₹10</h3>
+
+<input id="name" placeholder="Your Name">
+
+<input id="uid" placeholder="Game UID">
+
+<button onclick="join()">JOIN NOW</button>
+
+<br><br>
+
+<a href="admin.html">Admin Panel</a>
+
+</div>
+
+<script>
+
+function join(){
+
+let name=document.getElementById("name").value;
+let uid=document.getElementById("uid").value;
+
+if(name=="" || uid==""){
+alert("Fill all details");
+return;
+}
+
+let players=JSON.parse(localStorage.getItem("players")||"[]");
+
+players.push({name,uid});
+
+localStorage.setItem("players",JSON.stringify(players));
+
+alert("Joined Successfully");
+
+}
+
+</script>
+
+</body>
+</html>
