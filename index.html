@@ -77,6 +77,23 @@ alert("Joined Successfully");
 }
 
 </script>
+<script>
+async function registerPlayer() {
 
+const data = {
+name: document.getElementById("name").value,
+uid: document.getElementById("uid").value,
+phone: document.getElementById("phone").value,
+game: document.getElementById("game").value
+};
+
+await fetch("https://script.google.com/macros/s/AKfycbxQLIYx6OwZBGC59t2_VKX07BM-DkFHAH3MXNWq2zk7Mg8I1YCLCA7we1FJ1dBhSshpWg/exec", {
+method: "POST",
+body: JSON.stringify(data)
+});
+
+alert("Registration Successful");
+}
+</script>
 </body>
 </html>
